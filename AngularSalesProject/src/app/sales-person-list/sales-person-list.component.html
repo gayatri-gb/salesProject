@@ -1,0 +1,54 @@
+<table class="table">
+    <thead class="thead-dark">
+<tr>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Email</th>
+<th>SalesVolume</th>
+<th>Met Quota?</th>
+
+
+</tr>
+</thead>
+<tbody>
+ <tr *ngFor="let tempsales of salespersonlist" [ngClass]="{'highlight': tempsales.SalesVolume>=6000}" >
+     <td>{{tempsales.FirstName}}</td>
+     <td>{{tempsales.LastName}}</td>
+     <td>{{tempsales.Email}}</td>
+     <td>{{tempsales.SalesVolume | currency: 'USD'}}</td>
+<td><div *ngIf="tempsales.SalesVolume>=6000; else myelseblock">Yes</div>
+    <ng-template #myelseblock>No</ng-template>
+
+</td>
+ </tr>
+ 
+
+
+
+
+
+</tbody>
+
+
+    
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
